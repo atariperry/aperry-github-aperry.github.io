@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: rgb(81, 151, 216);
+			background-color: rgb(98, 162, 223);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -67,6 +67,12 @@
 			var speed = 20;
 			var positionY; 
 			var speedy;
+            var boardHeight = jQuery(window).height(); 
+			var randNum = Math.random() * 100;
+			var colorStr = "rgb(98, 162, 223)";
+box.css('background-color', colorStr);
+var randomNumberBetween0and10 = Math.random() * 255;
+
 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -79,9 +85,17 @@
 			if (positonx > boardWidth) {
 				speed *= -1;}
 				if (positonx < 0) (
-					speed = -15 * -1
+					speed = -19 * -1
 				);
 				
+
+				box.css('left', newPositionY);
+				box.css('top', newPositionX);
+				moveBoxTo(positionX, positionY);
+				setInterval(update, 50);
+				function endGame() {
+             clearInterval(interval);
+}
 			};
 
 			/* 
@@ -93,6 +107,7 @@
 			changeBoxText(points);	
             positonx = 0;
            points = points + 1;
+		
 
 			};
 		})();
